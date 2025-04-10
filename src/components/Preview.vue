@@ -91,7 +91,7 @@ const handleTouchEnd = () => {
 };
 
 watch(scroll, (newScroll) => {
-    if (!previewMinimized.value) {
+    if (!previewMinimized.value && newScroll > -30*(window.innerHeight / 100)) {
         previewHeight.value = `calc(70dvh - ${newScroll}px)`
     }
     else if (previewMinimized.value && newScroll < 0) {

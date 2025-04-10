@@ -86,7 +86,7 @@ const handleTouchEnd = () => {
 };
 
 watch(scroll, (newScroll) => {
-    if (!profileMinimized.value) {
+    if (!profileMinimized.value && newScroll > -50*(window.innerHeight / 100)) {
         profileHeight.value = `calc(50dvh - ${newScroll}px)`
     }
     else if (profileMinimized.value && newScroll < 0) {
