@@ -4,7 +4,6 @@
         <h2>{{ title }}</h2>
 
         <div class="stack">
-
             <div v-if="events.length >= 1" v-for="(event, index) in events" @click="openEvent(event.id)"
                 class="stack__card" :style="{ 'backgroundImage': `url(${event.image})` }"
                 :class="{ 'active': index === activeCard, 'next': index === nextCard, 'prev': index === prevCard && events.length > 2, 'alone': events.length === 1 }">
@@ -71,20 +70,21 @@ const switchCard = (direction) => {
 
 }
 
-const dateFormatter = (dateString) => {
+const dateFormatter = (isoString) => {
     const months = [
         "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
         "JUL", "AUG", "SEP", "OKT", "NOW", "DEC"
     ];
-    // const months = [
-    //     "ЯНВ", "ФЕВ", "МАР", "АПР", "МАЯ", "ИЮН",
-    //     "ИЮЛ", "АВГ", "СЕН", "ОКТ", "НОЯ", "ДЕК"
-    // ];
-    const [day, month, year] = dateString.split(".");
-    return `${parseInt(day)} ${months[parseInt(month) - 1]}`;
+    const date = new Date(isoString);
+    const day = date.getUTCDate(); // Получаем день
+    const month = date.getUTCMonth(); // Получаем месяц (0-11)
+
+    return `${day} ${months[month]}`; // Форматируем в "DD MMM"
 };
 
 const openEvent = (id) => {
+    console.log(id);
+
     emits('openEvent', id)
 }
 </script>
@@ -118,6 +118,7 @@ const openEvent = (id) => {
         transition: all .3s, opacity .6s;
         z-index: 1;
         opacity: 0;
+        box-shadow: inset 0px 0px 20px 10px $color-opacityblack;
 
         &.active {
             left: 0;
