@@ -1,8 +1,8 @@
 <template>
-    <div class="event-container" :style="{alignItems: title === 'User events' ? 'flex-start' : null}">
-        <h2 >{{ title }}</h2>
+    <div class="event-container" :style="{ alignItems: title === 'User events' ? 'flex-start' : null }">
+        <h2>{{ title }}</h2>
 
-        <div class="stack">
+        <div class="stack" @touchstart="handleTouchStart" @touchend="handleTouchEnd">
             <div v-if="events.length >= 1" v-for="(event, index) in events" @click="openEvent(event.id)"
                 class="stack__card" :style="{ 'backgroundImage': `url(${event.image})` }"
                 :class="{ 'active': index === activeCard, 'next': index === nextCard, 'prev': index === prevCard && events.length > 2, 'alone': events.length === 1 }">
@@ -44,6 +44,22 @@ const emits = defineEmits(['openEvent'])
 let activeCard = ref(0);
 let nextCard = ref(activeCard.value + 1);
 let prevCard = ref(props.events.length - 1);
+
+let startX = 0;
+let endX = 0;
+
+const handleTouchStart = (event) => {
+    startX = event.touches[0].clientX;
+};
+
+const handleTouchEnd = (event) => {
+    endX = event.changedTouches[0].clientX;
+    if (startX - endX > 50) {
+        switchCard('next');
+    } else if (endX - startX > 50) {
+        switchCard('prev');
+    }
+};
 
 const switchCard = (direction) => {
     switch (direction) {
