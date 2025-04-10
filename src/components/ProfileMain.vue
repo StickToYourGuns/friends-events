@@ -71,7 +71,7 @@ const handleTouchMove = (event) => {
 
 const handleTouchEnd = () => {
     console.log('scroll: ' + scroll.value + ', Minimized: ' + profileMinimized.value);
-    if ((!profileMinimized.value && scroll.value > 0 && scroll.value < valueToMinimzie / 2) || (profileMinimized.value && scroll.value <= -(valueToMinimzie / 2))) {
+    if ((!profileMinimized.value && scroll.value > 0 && scroll.value < valueToMinimzie / 2) || (profileMinimized.value && scroll.value <= -(valueToMinimzie / 2)) || (!profileMinimized.value && scroll.value < 0)) {
         console.log('разворачиваем');
 
         profileHeight.value = "50dvh";
@@ -86,7 +86,7 @@ const handleTouchEnd = () => {
 };
 
 watch(scroll, (newScroll) => {
-    if (!profileMinimized.value && newScroll > 0) {
+    if (!profileMinimized.value) {
         profileHeight.value = `calc(50dvh - ${newScroll}px)`
     }
     else if (profileMinimized.value && newScroll < 0) {

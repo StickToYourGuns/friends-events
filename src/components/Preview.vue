@@ -76,7 +76,7 @@ const handleTouchMove = (event) => {
 
 const handleTouchEnd = () => {
     console.log('scroll: ' + scroll.value + ', Minimized: ' + previewMinimized.value);
-    if ((!previewMinimized.value && scroll.value > 0 && scroll.value < valueToMinimzie / 2) || (previewMinimized.value && scroll.value <= -(valueToMinimzie / 2))) {
+    if ((!previewMinimized.value && scroll.value > 0 && scroll.value < valueToMinimzie / 2) || (previewMinimized.value && scroll.value <= -(valueToMinimzie / 2)) || (!previewMinimized.value && scroll.value < 0)) {
         console.log('разворачиваем');
 
         previewHeight.value = "70dvh";
@@ -91,7 +91,7 @@ const handleTouchEnd = () => {
 };
 
 watch(scroll, (newScroll) => {
-    if (!previewMinimized.value && newScroll > 0) {
+    if (!previewMinimized.value) {
         previewHeight.value = `calc(70dvh - ${newScroll}px)`
     }
     else if (previewMinimized.value && newScroll < 0) {
