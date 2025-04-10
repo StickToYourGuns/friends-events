@@ -14,6 +14,11 @@
 body {
     background-color: $color-black;
     margin: 0;
+    
+    &.no-scroll {
+        overflow: hidden;
+        height: 100vh;
+      }
 }
 
 h1, h2, h3, h4, h5, h6, p, span {

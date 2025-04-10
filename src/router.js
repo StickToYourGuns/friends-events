@@ -13,11 +13,15 @@ const routes = [
     component: Home
   },
   {
-    path: '/profile',
+    path: '/profile/:nickname',
     name: 'Profile',
     component: Profile
   },
-  { path: '/event/:id', name: 'Event', component: Event },
+  {
+    path: '/event/:id',
+    name: 'Event',
+    component: Event
+  },
 ]
 
 const router = createRouter({

@@ -1,9 +1,28 @@
 <template>
     <header class="header">
         <h1 class="header__title">My Events</h1>
-        <img class="header__image" src="https://creativecloud.adobe.com/content/dam/2020/09/dsc20200922_profilepic_ht/profile-picture_960x540.jpg" alt="">
+        <img @click="openProfile(user.nickname)" class="header__image"
+            :src="user.avatar"
+            alt="">
     </header>
 </template>
+
+<script setup>
+import { computed } from "vue";
+import { useEventStore } from '@/store/eventStore';
+import { useRouter } from 'vue-router';
+
+const eventStore = useEventStore();
+const router = useRouter();
+
+const openProfile = (nickname) => {
+    router.push({
+        path: `/profile/${nickname}`,
+    });
+}
+
+const user = computed(() => eventStore.user)
+</script>
 
 <style lang="scss" scoped>
 .header {
@@ -22,9 +41,7 @@
     justify-content: space-between;
     align-items: center;
 
-    &__title {
-        
-    }
+    &__title {}
 
     &__image {
         height: 50px;

@@ -1,0 +1,25 @@
+.event {
+    &__button {
+        &--back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: $color-opacitygrey;
+            backdrop-filter: contrast(70%);
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .2s ease;
+            transform: rotate(180deg);
+            z-index: 1;
+
+            &:active {
+                backdrop-filter: contrast(50%);
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+.event-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.stack {
+    height: 20dvh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__card {
+        width: calc(100% - 50px);
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 20px;
+        position: absolute;
+        left: 50px;
+        transition: all .3s, opacity .6s;
+        z-index: 1;
+        opacity: 0;
+        box-shadow: inset 0px 0px 20px 10px $color-opacityblack;
+
+        &.active {
+            left: 0;
+            z-index: 3;
+            opacity: 1;
+        }
+
+        &.next {
+            filter: brightness(.5);
+            z-index: 2;
+            opacity: 1;
+        }
+
+        &.prev {
+            left: -500px;
+            z-index: 4;
+            opacity: 0;
+        }
+
+        &.alone {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        height: 100%;
+        width: 100%;
+        border-radius: inherit;
+        backdrop-filter: blur(1px) brightness(.6);
+        color: $color-white;
+    }
+
+    &__secondary {
+        display: flex;
+        justify-content: space-between;
+        font-size: $font-size-s;
+    }
+
+    &__title {
+        font-size: $font-size-l;
+        font-weight: bold;
+        text-transform: uppercase;
+        max-width: 100%;
+    }
+
+    &__buttons {
+        height: 100%;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+
+        &:active {
+
+            .prev,
+            .next {
+                height: 22px;
+                width: 22px;
+                filter: brightness(3);
+            }
+        }
+
+        &--button {
+            background-color: $color-opacitygrey;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .2s ease;
+
+            &.prev {
+                transform: rotate(180deg);
+            }
+
+        }
+    }
+}
