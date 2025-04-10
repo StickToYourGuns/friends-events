@@ -24,7 +24,7 @@ const handleTouchMove = (event) => {
   if (startX < 30 && deltaX > 0) {
 
     const shadowIntensity = Math.min(deltaX / 2, 200);
-    document.body.style.boxShadow = `inset ${shadowIntensity}px 0 30px black`;
+    document.body.style.boxShadow = `inset ${shadowIntensity}px 0 50px black`;
     console.log(shadowIntensity, document.body);
   }
 };

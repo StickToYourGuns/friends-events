@@ -5,14 +5,20 @@
             <h1 class="profile__nickname">{{ user.nickname }}</h1>
 
             <div class="profile__secondary">
-                <div class="profile__secondary--block">
-                    <img class="profile__secondary--img" src="@/assets/images/telegram.svg" alt="">
-                    <span class="profile__secondary--info">{{ user.telegram_id }}</span>
-                </div>
-                <div class="profile__secondary--block">
-                    <img class="profile__secondary--img" src="@/assets/images/instagram.svg" alt="">
-                    <span class="profile__secondary--info">{{ user.instagram_id }}</span>
-                </div>
+                <!-- <div class="profile__secondary--block"> -->
+                    <a v-if="user.telegram_id" :href="`https://t.me/${user.telegram_id}`" target="_blank"
+                        rel="noopener noreferrer" class="profile__secondary--block">
+                        <img class="profile__secondary--img" src="@/assets/images/telegram.svg" alt="Telegram">
+                        <span class="profile__secondary--info">{{ user.telegram_id }}</span>
+                    </a>
+                <!-- </div> -->
+                <!-- <div class="profile__secondary--block"> -->
+                    <a v-if="user.instagram_id" :href="`https://instagram.com/${user.instagram_id}`" target="_blank"
+                        rel="noopener noreferrer" class="profile__secondary--block">
+                        <img class="profile__secondary--img" src="@/assets/images/instagram.svg" alt="Instagram">
+                        <span class="profile__secondary--info">{{ user.instagram_id }}</span>
+                    </a>
+                <!-- </div> -->
             </div>
         </div>
     </div>

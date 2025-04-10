@@ -67,6 +67,11 @@
         display: flex;
         justify-content: space-between;
         font-size: $font-size-s;
+        gap: 5px;
+    }
+
+    &__date {
+        text-align: end;
     }
 
     &__title {
