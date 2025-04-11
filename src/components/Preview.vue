@@ -7,7 +7,7 @@
             <div class="preview__secondary">
                 <div class="preview__secondary--block">
                     <img class="preview__secondary--img" src="@/assets/images/geo.svg" alt="">
-                    <span class="preview__secondary--info">{{ event.location }}</span>
+                    <span class="preview__secondary--info">{{ event.location_name }}</span>
                 </div>
             </div>
 
