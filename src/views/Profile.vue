@@ -8,12 +8,10 @@
 
 <script setup>
 import { computed } from "vue";
-import { useRoute } from 'vue-router';
 import { useEventStore } from '@/store/eventStore';
 import ProfileMain from "@/components/ProfileMain.vue";
 import ProfileSecondary from "@/components/ProfileSecondary.vue";
 
-const route = useRoute();
 const eventStore = useEventStore();
 
 const goBack = () => {

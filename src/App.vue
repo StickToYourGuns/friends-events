@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
+import MainMenu from "@/components/UI/MainMenu.vue";
 
 const preventPullToRefresh = (event) => {
   if (window.scrollY === 0 && event.touches[0].clientY > 0) {
@@ -57,6 +58,7 @@ onUnmounted(() => {
 
 <template>
   <router-view></router-view>
+  <MainMenu />
 </template>
 
 <style scoped></style>
