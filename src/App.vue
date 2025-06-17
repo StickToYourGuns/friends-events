@@ -13,6 +13,7 @@ const checkAuth = () => {
     eventStore.modalType = 'auth';
   };
 }
+import MainMenu from "@/components/UI/MainMenu.vue";
 
 const preventPullToRefresh = (event) => {
   if (window.scrollY === 0 && event.touches[0].clientY > 0) {
@@ -72,6 +73,7 @@ onUnmounted(() => {
 <template>
   <Modal />
   <router-view></router-view>
+  <MainMenu />
 </template>
 
 <style scoped></style>

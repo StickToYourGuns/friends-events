@@ -8,6 +8,7 @@
 
 <script setup>
 import UsersDropdown from "@/components/UI/UsersDropdown.vue";
+import { useRouter } from 'vue-router';
 import Stack from "@/components/Stack.vue";
 
 const props = defineProps({
@@ -17,8 +18,13 @@ const props = defineProps({
     }
 })
 
-console.log(props.user);
+const router = useRouter();
 
+const openEvent = (id) => {
+    router.push({
+        path: `/event/${id}`,
+    });
+}
 </script>
 
 <style lang="scss" scoped>

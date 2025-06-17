@@ -1,0 +1,38 @@
+.menu {
+    z-index: 10;
+    background-color: $color-opacitygrey;
+    backdrop-filter: blur(10px);
+    height: 60px;
+    width: calc(100% - 40px);
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &__button {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        background-color: $color-opacitygrey;
+        border: none;
+
+        &.add {
+            height: 70px;
+            width: 70px;
+            z-index: 12;
+            font-size: 100px;
+            line-height: 0;
+            background-color: $color-green;
+            position: absolute;
+            bottom: 15px;
+            left: calc(50% - 35px);
+        }
+    }
+}
+
+img {
+    height: 60%;
+}
