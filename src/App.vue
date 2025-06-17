@@ -1,6 +1,18 @@
 <script setup>
 import { onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
+import Modal from "@/components/UI/Modal.vue";
+import { useEventStore } from "@/store/eventStore.js";
+
+const eventStore = useEventStore();
+
+const checkAuth = () => {
+  if (localStorage.getItem('userName')) {
+    eventStore.isAuth = true;
+  } else {
+    eventStore.modalType = 'auth';
+  };
+}
 
 const preventPullToRefresh = (event) => {
   if (window.scrollY === 0 && event.touches[0].clientY > 0) {
@@ -41,6 +53,8 @@ const handleTouchEnd = (event) => {
 };
 
 onMounted(() => {
+  checkAuth();
+
   window.addEventListener("touchmove", preventPullToRefresh, { passive: false });
   window.addEventListener("touchstart", handleTouchStart);
   window.addEventListener("touchmove", handleTouchMove);
@@ -56,6 +70,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <Modal />
   <router-view></router-view>
 </template>
 

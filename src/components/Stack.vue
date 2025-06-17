@@ -9,7 +9,7 @@
                 <div class="stack__content">
                     <span class="stack__title">{{ event.title }}</span>
                     <div class="stack__secondary">
-                        <span class="stack__location">{{ event.location }}</span>
+                        <span class="stack__location">{{ event.location_name }}</span>
                         <span class="stack__date">{{ dateFormatter(event.date) }}</span>
                     </div>
                 </div>

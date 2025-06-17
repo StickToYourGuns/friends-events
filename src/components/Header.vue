@@ -32,7 +32,7 @@ const user = computed(() => eventStore.user)
     box-shadow: 5px 5px 10px $color-opacityblack;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: $z-index-header;
     backdrop-filter: blur(10px);
     border-radius: 0 0 20px 20px;
     padding: 20px;

@@ -1,0 +1,28 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: $z-index-modal;
+    backdrop-filter: blur(10px);
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100dvh - 100px);
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        padding-top: 40px;
+        position: relative;
+        border-radius: $radius-default $radius-default 0 0;
+        background-color: white;
+    }
+}
