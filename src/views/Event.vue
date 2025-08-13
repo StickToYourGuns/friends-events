@@ -7,13 +7,14 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useRoute } from 'vue-router';
 import { useEventStore } from '@/store/eventStore';
 
 import Preview from "@/components/Preview.vue";
 import Bio from "@/components/Bio.vue";
 
+const event = computed(() => eventStore.event);
 const route = useRoute();
 const eventStore = useEventStore();
 
@@ -23,10 +24,9 @@ const goBack = () => {
   window.history.back();
 };
 
-const event = computed(() => {
-  return eventStore.friendsEvents.find(e => e.id === Number(eventId)) ||
-    eventStore.myEvents.find(e => e.id === Number(eventId));
-});
+onMounted(() => {
+  eventStore.fetchData('get', 'events', eventId);
+})
 </script>
 
 <style lang="scss" scoped>

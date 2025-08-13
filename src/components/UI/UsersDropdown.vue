@@ -1,11 +1,11 @@
 <template>
     <div class="users__container">
         <h2>{{ title }}</h2>
-        <div class="users" :style="usersStyle" @click="expandUsers">
+        <div v-if="users" class="users" :style="usersStyle" @click="expandUsers">
 
             <span v-if="!users.length" class="users__empty">{{ whyEmpty }}</span>
 
-            <img v-if="users.length" src="@/assets/images/chevron.svg" class="users__button--expand"
+            <img v-if="users && users.length" src="@/assets/images/chevron.svg" class="users__button--expand"
                 @click="expandUsers" :class="{ rotated: usersExpanded }">
 
             <div v-if="!usersExpanded" v-for="(user, index) in visibleUsers" :key="user.id" class="users__block">
@@ -28,7 +28,7 @@ import { ref, computed } from "vue";
 
 const props = defineProps({
     users: {
-        type: Object,
+        type: Array,
         required: true
     },
     title: {
@@ -40,12 +40,10 @@ const props = defineProps({
 let usersExpanded = ref(false);
 
 const whyEmpty = computed(() => {
-    console.log(props.type);
-
     switch (props.title) {
         case 'Friends':
             return 'The user has not added any friends yet';
-        case 'Participiants':
+        case 'Participants':
             return 'No one is participating in the event yet';
     }
 })

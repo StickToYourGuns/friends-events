@@ -1,0 +1,35 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    
+    &__string {
+        width: 100%;
+        display: flex;
+    }
+    
+    &__content {
+        font-size: $font-size-l;
+        color: $color-black;
+        font-weight: bold;
+        position: relative;
+        width: 100%;
+        border: none;
+        outline: none;
+        background: none;
+        border-bottom: 1px solid #000000;
+    }
+    
+    &__icon {
+        position: absolute;
+        right: 20px;
+        cursor: pointer;
+    }
+}
+
+label {
+    color: $color-black;
+    text-transform: uppercase;
+    font-weight: bold;
+}

@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useEventStore } from '@/store/eventStore';
 import ProfileMain from "@/components/ProfileMain.vue";
 import ProfileSecondary from "@/components/ProfileSecondary.vue";
@@ -19,6 +19,11 @@ const goBack = () => {
 };
 
 const user = computed(() => eventStore.user);
+
+onMounted(() => {
+  const userId = localStorage.getItem('userid');
+  eventStore.fetchData('get', 'users', `${userId}/full`);
+});
 </script>
 
 <style lang="scss" scoped>

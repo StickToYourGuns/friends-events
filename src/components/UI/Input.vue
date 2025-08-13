@@ -1,12 +1,12 @@
 <template>
     <div class="input" :class="isValid">
-        <label for="">{{ label }}</label>
+        <label :for="id">{{ label }}</label>
         <div class="input__string">
             <input :class="{ 'grey': isGrey }" class="input__content" :id="id" :type="typeValidate"
                 :placeholder="placeholder" :value="localValue" @input="updateValue($event.target.value)"
                 autocomplete="off" />
-            <img v-if="type === 'password'" @click="togglePassword" :src="toggleEye" alt="">
-
+            <img class="input__icon" v-if="type === 'password' && localValue.length" @click="togglePassword"
+                :src="toggleEye" alt="">
         </div>
         <div class="input__hint" :class="{ 'active': isActive }" v-text="hint">
         </div>
@@ -17,13 +17,6 @@
 import { ref, computed } from "vue";
 import EyeFill from "@/assets/images/eye-fill.svg";
 import EyeSlashFill from "@/assets/images/eye-slash-fill.svg";
-
-const emit = defineEmits(["update:modelValue"]);
-
-const passwordVisible = ref(false);
-
-const togglePassword = () => passwordVisible.value = !passwordVisible.value;
-const toggleEye = computed(() => passwordVisible.value ? EyeSlashFill : EyeFill)
 
 const props = defineProps({
     label: {
@@ -56,6 +49,16 @@ const props = defineProps({
     },
 });
 
+const emit = defineEmits(["update:modelValue"]);
+
+const localValue = ref(props.modelValue);
+
+const passwordVisible = ref(false);
+
+const togglePassword = () => passwordVisible.value = !passwordVisible.value;
+const toggleEye = computed(() => passwordVisible.value ? EyeSlashFill : EyeFill)
+
+
 const typeValidate = computed(() => {
     if (props.type === 'password') {
         return passwordVisible.value ? 'text' : 'password'
@@ -63,25 +66,11 @@ const typeValidate = computed(() => {
 })
 
 const updateValue = (value) => {
-    // localValue.value = value;
-    // emit("isModified");
+    localValue.value = value;
     emit("update:modelValue", value);
 };
 </script>
 
 <style lang="scss">
-.input {
-    width: 100%;
-    border-bottom: 1px solid #000000;
-
-    &__string {
-        width: 100%;
-        display: flex;
-    }
-
-    &__content {
-        width: 100%;
-        border: none;
-    }
-}
+@import "@/assets/styles/components/UI/input.scss";
 </style>

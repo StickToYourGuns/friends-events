@@ -1,8 +1,8 @@
 <template>
     <div class="profile"
-        :style="{ 'backgroundImage': `url(${user.avatar})`, height: profileHeight, transition: transition ? '.3s ease' : 'none' }">
+        :style="{ 'backgroundImage': user.avatar ? `url(${user.avatar})` : '', height: profileHeight, transition: transition ? '.3s ease' : 'none' }">
         <div class="profile__content">
-            <h1 class="profile__nickname">{{ user.nickname }}</h1>
+            <h1 class="profile__login">{{ user.login }}</h1>
 
             <div class="profile__secondary">
                 <!-- <div class="profile__secondary--block"> -->

@@ -1,0 +1,20 @@
+.button {
+    background-color: transparent;
+    color: $color-black;
+    font-size: $font-size-l;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: border-bottom 0.3s ease;
+    border-bottom: transparent;
+    margin-bottom: -1px;
+    
+    &.active {
+        border-bottom: 1px solid $color-black;
+        margin-bottom: -1px;
+    }
+
+    &:hover {
+    }
+}

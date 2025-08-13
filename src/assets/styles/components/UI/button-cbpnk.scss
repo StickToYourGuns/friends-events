@@ -1,0 +1,67 @@
+.button {
+    background-color: transparent;
+    color: $color-black;
+    font-size: $font-size-l;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif !important;
+    text-shadow: 1px 1px rgba(246, 0, 153, 0.8),
+        -1px -1px rgba(15, 210, 255, 0.8),
+        -1px 0px rgba(255, 210, 0, 1);
+
+    &:hover {
+        -webkit-animation: wiggle 0.2s 2;
+        text-shadow: 30px 13px rgba(246, 0, 153, 0.8),
+            -38px -4px rgba(15, 210, 255, 0.8),
+            -2px -4px rgba(255, 210, 0, 1);
+
+    }
+}
+
+@-webkit-keyframes wiggle {
+    0% {
+        -webkit-transform: skewX(24deg);
+    }
+
+    10% {
+        -webkit-transform: skewX(-8deg);
+    }
+
+    20% {
+        -webkit-transform: skewX(55deg);
+    }
+
+    30% {
+        -webkit-transform: skewX(-90deg);
+    }
+
+    40% {
+        -webkit-transform: skewX(29deg);
+    }
+
+    50% {
+        -webkit-transform: skewX(-90deg);
+    }
+
+    60% {
+        -webkit-transform: skewX(3deg);
+    }
+
+    70% {
+        -webkit-transform: skewX(-2deg);
+    }
+
+    80% {
+        -webkit-transform: skewX(1deg);
+    }
+
+    90% {
+        -webkit-transform: skewX(10deg);
+    }
+
+    100% {
+        -webkit-transform: skewX(0deg);
+    }
+}

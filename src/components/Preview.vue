@@ -14,13 +14,13 @@
             <div class="preview__secondary">
                 <div class="preview__secondary--block">
                     <img class="preview__secondary--img" src="@/assets/images/clock.svg" alt="">
-                    <span class="preview__secondary--info">{{ dateFormatter(event.date, 'time') }}</span>
+                    <span class="preview__secondary--info">{{ dateFormatter(event.start_datetime, 'time') }}</span>
                 </div>
                 <div class="preview__secondary--block">
                     <img class="preview__secondary--img" src="@/assets/images/calendar.svg" alt="">
-                    <span class="preview__secondary--info">{{ dateFormatter(event.date, 'date') }}</span>
+                    <span class="preview__secondary--info">{{ dateFormatter(event.start_datetime, 'date') }}</span>
                 </div>
-                <div class="preview__secondary--block">
+                <div class="preview__secondary--block" v-if="event.weather">
                     <img class="preview__secondary--img" src="@/assets/images/weather-sun.svg" alt="">
                     <span class="preview__secondary--info">{{ event.weather }}</span>
                 </div>
@@ -52,6 +52,8 @@ const dateFormatter = (isoString, type) => {
         "July", "August", "September", "October", "November", "December"
     ];
     const date = new Date(isoString);
+    console.log(isoString, '', date);
+
     const day = date.getUTCDate();
     const month = date.getUTCMonth();
     const hours = date.getUTCHours().toString().padStart(2, '0');

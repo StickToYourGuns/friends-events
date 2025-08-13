@@ -1,27 +1,29 @@
 <template>
     <header class="header">
         <h1 class="header__title">My Events</h1>
-        <img @click="openProfile(user.nickname)" class="header__image"
-            :src="user.avatar"
-            alt="">
+        <img v-if="avatar !== 'null'" @click="openProfile(login)" class="header__image" :src="avatar" :alt="login">
+        <span v-else @click="openProfile(login)" class="header__image empty">
+            {{ login.charAt(0).toUpperCase() }}
+        </span>
     </header>
 </template>
 
 <script setup>
 import { computed } from "vue";
-import { useEventStore } from '@/store/eventStore';
 import { useRouter } from 'vue-router';
 
-const eventStore = useEventStore();
 const router = useRouter();
 
-const openProfile = (nickname) => {
+const openProfile = (login) => {
+
     router.push({
-        path: `/profile/${nickname}`,
+        path: `/profile/${login}`,
     });
+    console.log(login.value, avatar.value);
 }
 
-const user = computed(() => eventStore.user)
+const login = computed(() => localStorage.getItem('login'))
+const avatar = computed(() => localStorage.getItem('avatar'))
 </script>
 
 <style lang="scss" scoped>
@@ -48,6 +50,16 @@ const user = computed(() => eventStore.user)
         width: 50px;
         border-radius: 50%;
         object-fit: cover;
+        color: $color-white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $font-size-xl;
+        font-weight: bold;
+
+        &.empty {
+            border: 1px solid $color-opacitygrey;
+        }
     }
 }
 </style>

@@ -2,31 +2,39 @@
     <div class="event-container" :style="{ alignItems: title === 'User events' ? 'flex-start' : null }">
         <h2>{{ title }}</h2>
 
-        <div class="stack" @touchstart="handleTouchStart" @touchend="handleTouchEnd">
-            <div v-if="events.length >= 1" v-for="(event, index) in events" @click="openEvent(event.id)"
-                class="stack__card" :style="{ 'backgroundImage': `url(${event.image})` }"
-                :class="{ 'active': index === activeCard, 'next': index === nextCard, 'prev': index === prevCard && events.length > 2, 'alone': events.length === 1 }">
-                <div class="stack__content">
-                    <span class="stack__title">{{ event.title }}</span>
-                    <div class="stack__secondary">
-                        <span class="stack__location">{{ event.location_name }}</span>
-                        <span class="stack__date">{{ dateFormatter(event.date) }}</span>
+        <transition-group name="events-loading">
+            <div v-if="isLoading" class="stack">
+                <Loader />
+            </div>
+            <div v-else class="stack" @touchstart="handleTouchStart" @touchend="handleTouchEnd">
+                <div v-if="events.length >= 1 && !isLoading" v-for="(event, index) in events"
+                    @click="openEvent(event.id)" class="stack__card"
+                    :style="{ 'backgroundImage': `url(${event.image})` }"
+                    :class="{ 'active': index === activeCard, 'next': index === nextCard, 'prev': index === prevCard && events.length > 2, 'alone': events.length === 1 }">
+                    <div class="stack__content">
+                        <span class="stack__name">{{ event.name }}</span>
+                        <div class="stack__secondary">
+                            <span class="stack__location">{{ event.location_name }}</span>
+                            <span class="stack__date">{{ dateFormatter(event.start_date) }}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div v-if="events.length > 1" class="stack__buttons" @click="switchCard('prev')">
-                <img src="@/assets/images/chevron.svg" class="stack__buttons--button prev">
+                <div v-if="events.length > 1 && !isLoading" class="stack__buttons" @click="switchCard('prev')">
+                    <img src="@/assets/images/chevron.svg" class="stack__buttons--button prev">
+                </div>
+                <div v-if="events.length > 1 && !isLoading" class="stack__buttons" @click="switchCard('next')">
+                    <img src="@/assets/images/chevron.svg" class="stack__buttons--button next">
+                </div>
             </div>
-            <div v-if="events.length > 1" class="stack__buttons" @click="switchCard('next')">
-                <img src="@/assets/images/chevron.svg" class="stack__buttons--button next">
-            </div>
-        </div>
+        </transition-group>
     </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref, computed } from "vue";
+import { useEventStore } from "@/store/eventStore";
+import Loader from "@/components/UI/Loader.vue";
 
 const props = defineProps({
     events: {
@@ -39,8 +47,10 @@ const props = defineProps({
     }
 })
 
+const eventStore = useEventStore();
 const emits = defineEmits(['openEvent'])
 
+const isLoading = computed(() => eventStore.isLoading);
 let activeCard = ref(0);
 let nextCard = ref(activeCard.value + 1);
 let prevCard = ref(props.events.length - 1);
@@ -62,6 +72,7 @@ const handleTouchEnd = (event) => {
 };
 
 const switchCard = (direction) => {
+    if (props.events.length <= 1) return
     switch (direction) {
         case 'next':
             activeCard.value++;
@@ -99,6 +110,10 @@ const dateFormatter = (isoString) => {
 const openEvent = (id) => {
     emits('openEvent', id)
 }
+
+onMounted(() => {
+    console.log(props.events);
+});
 </script>
 
 <style lang="scss" scoped>

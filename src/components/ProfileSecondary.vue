@@ -2,7 +2,7 @@
     <div class="secondary">
         <UsersDropdown :users="user.friends" title="Friends" />
 
-        <Stack :events="user.user_events" title="User events" @openEvent="openEvent" />
+        <!-- <Stack :events="user.user_events" title="User events" @openEvent="openEvent" /> -->
     </div>
 </template>
 

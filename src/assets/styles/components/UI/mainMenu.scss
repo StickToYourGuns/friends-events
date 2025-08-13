@@ -1,6 +1,6 @@
 .menu {
     z-index: 10;
-    background-color: $color-opacitygrey;
+    // background-color: $color-opacitygrey;
     backdrop-filter: blur(10px);
     height: 60px;
     width: calc(100% - 40px);
@@ -9,15 +9,35 @@
     left: 20px;
     border-radius: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    // padding: 16px;
+
+    &__side {
+        width: calc(50% - 40px);
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    background: radial-gradient(circle closest-side, rgba(0, 0, 0, 0) 38px, $color-opacitygrey 39px, $color-opacitygrey 30px);
 
     &__button {
-        height: 45px;
-        width: 45px;
+        height: 44px;
+        width: 44px;
         border-radius: 50%;
         background-color: $color-opacitygrey;
         border: none;
+
+        overflow: hidden;
+        transition: transform 0.2s ease;
+
+        &>img {
+            opacity: .7;
+
+            &.clicked {
+                animation: click-animation 3s ease;
+            }
+        }
 
         &.add {
             height: 70px;
@@ -30,9 +50,26 @@
             bottom: 15px;
             left: calc(50% - 35px);
         }
+
+
+
     }
 }
 
 img {
     height: 60%;
+}
+
+@keyframes click-animation {
+    0% {
+        opacity: .7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .7;
+    }
 }
