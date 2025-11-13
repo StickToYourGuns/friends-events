@@ -1,0 +1,92 @@
+@use "@/assets/styles/variables.scss" as *;
+
+.content {
+    &__hr-container {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        margin-left: -$spacing-xl;
+        padding: $spacing-xs;
+        padding-bottom: $spacing-xxxxl;
+        @include flex-center
+    }
+
+    &__hr {
+        width: 80px;
+        height: 2px;
+        background-color: $color-text-50;
+        transition: all .3s ease;
+
+        &--active {
+            scale: 1.3;
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-weight: bold;
+    }
+
+    &__info {
+        font-weight: bold;
+    }
+
+    &__description-container {
+        max-height: calc(1.2rem * 3);
+        overflow: hidden;
+        transition: max-height .3s ease;
+        position: relative;
+
+        &--long {
+            &::after {
+                transition: all .3s ease;
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: $spacing-s;
+                background: linear-gradient(to bottom, transparent, $color-background);
+            }
+        }
+
+        &--expanded {
+            &::after {
+                transition: all .3s ease;
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: linear-gradient(to bottom, transparent, $color-background);
+            }
+        }
+    }
+
+    &__description {
+        color: $color-text-80;
+    }
+
+    &__description-button {
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+        align-self: flex-start;
+        margin-top: $spacing-xs;
+        font-size: .8rem;
+        color: $color-text-50;
+    }
+
+    &__accept-scroll {
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    padding-bottom: $spacing-xxxxl;
+}
+}

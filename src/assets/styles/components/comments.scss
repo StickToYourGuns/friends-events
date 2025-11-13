@@ -1,0 +1,63 @@
+@use "@/assets/styles/variables.scss" as *;
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    &__heading {
+        margin-bottom: $spacing-s;
+    }
+
+    &__plus {
+        width: $spacing-xxl;
+        height: $spacing-xxl;
+        border-radius: $avatars-size-m;
+        background-color: $color-primary;
+        margin: $spacing-xxs;
+    }
+}
+
+.comment {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-xs;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: $spacing-xxs;
+        background-color: $color-primary-10;
+        padding: $spacing-xs;
+        border-radius: 0 $spacing-s $spacing-s $spacing-s;
+        flex-grow: 1;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs;
+        width: 100%;
+    }
+
+    &__username {
+        color: $color-text-80;
+    }
+
+    &__text {
+        font-size: .9rem;
+        color: $color-text-50;
+    }
+
+    &__time {
+        font-size: .7rem;
+        color: $color-text-30;
+    }
+
+    &__image {
+        width: $avatars-size-m;
+        height: $avatars-size-m ;
+        border-radius: $avatars-size-m;
+    }
+}

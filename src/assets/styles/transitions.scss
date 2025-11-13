@@ -1,0 +1,90 @@
+.routing-enter-active {
+    transition: all .3s ease-in-out;
+}
+
+.routing-leave-active {
+    transition: all .3s ease-in-out;
+}
+
+.routing-enter-from,
+.routing-leave-to {
+    opacity: 0;
+}
+
+.layouting-enter-active {
+    transition: all .3s ease-in-out;
+}
+
+.layouting-leave-active {
+    transition: all .3s ease-in-out;
+}
+
+.layouting-enter-from,
+.layouting-leave-to {
+    opacity: 0;
+}
+
+
+
+.header-enter-active {
+    transition: all .5s ease-in-out;
+}
+
+.header-leave-active {
+    transition: all .3s ease-in-out;
+}
+
+.header-enter-from,
+.header-leave-to {
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
+.menu-enter-active {
+    transition: all .5s ease-in-out;
+}
+
+.menu-leave-active {
+    transition: all .3s ease-in-out;
+}
+
+.menu-enter-from,
+.menu-leave-to {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+
+.more-enter-active {
+    transition: all .5s ease-in-out;
+}
+
+.more-leave-active {
+    transition: all 0 ease-in-out;
+}
+
+.more-enter-from,
+.more-leave-to {
+    transform: translateY(-30px);
+    opacity: 0;
+}
+
+
+.list-move,
+/* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.3s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+    position: absolute;
+}

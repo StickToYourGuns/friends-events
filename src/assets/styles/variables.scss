@@ -1,0 +1,41 @@
+$color-primary: #282828;
+$color-primary-10: #28282810;
+$color-background: #F4F6F8;
+$color-white: #FFFFFF;
+$color-text-100: #282828;
+$color-text-80: #282828b0;
+$color-text-50: #28282880;
+$color-text-30: #28282846;
+
+$color-red: #b1002f;
+
+$spacing-xxxs: 2px;
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-s: 12px;
+$spacing-m: 16px;
+$spacing-l: 20px;
+$spacing-xl: 24px;
+$spacing-xxl: 32px;
+$spacing-xxxl: 48px;
+$spacing-xxxxl: 64px;
+
+$button-height: 35px;
+
+$avatars-size-m: 40px;
+$avatars-size-l: 50px;
+$main-input-height: 50px;
+$categories-height: 40px;
+$users-dropdown-height: 70px;
+$menu-padding: calc($spacing-m / 2);
+$menu-height: 70px;
+$menu-button-size: calc($menu-height - $spacing-m);
+
+$z-index-bio: 20;
+
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

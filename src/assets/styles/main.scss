@@ -1,0 +1,97 @@
+@use "@/assets/styles/variables.scss" as *;
+@use '@/assets/styles/components/events.scss' as *;
+@use '@/assets/styles/components/comments.scss' as *;
+@use '@/assets/styles/components/content.scss' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    color: $color-text-100;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#app {
+    position: relative;
+}
+
+html,
+body {
+    font-size: 16px;
+    overscroll-behavior: none;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 135%;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    caret-color: #282828;
+}
+
+.content-wrapper {
+    padding: $spacing-xl;
+    height: 100dvh;
+    width: 100dvw;
+    padding-top: calc(var(--tg-content-safe-area-inset-top) + $spacing-xxxl);
+    padding-bottom: var(--tg-content-safe-area-inset-bottom);
+    background-color: $color-background;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &--empty {
+        padding: 0;
+        display: block;
+    }
+}
+
+
+// никаких скроллов
+*,
+*::before,
+*::after {
+
+    // Для WebKit (Chrome, Safari, Edge)
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+
+    // Для Firefox
+    scrollbar-width: none; // Убирает скроллбар
+    -ms-overflow-style: none; // Для IE/Edge (legacy)
+}
+
+// Дополнительно: для body и html
+html,
+body {
+    -ms-overflow-style: none; // IE/Edge
+    scrollbar-width: none; // Firefox
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

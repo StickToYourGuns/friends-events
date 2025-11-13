@@ -1,0 +1,153 @@
+@use "@/assets/styles/variables.scss" as *;
+
+.events {
+    &__nav-buttons {
+        width: 100%;
+        padding: 0 $spacing-xl;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        z-index: 1000;
+        top: calc(var(--tg-content-safe-area-inset-top) + $spacing-xxxl);
+    }
+
+    &__nav-button {
+        background-color: $color-white;
+        border: none;
+        width: $main-input-height;
+        height: $main-input-height;
+        border-radius: $main-input-height;
+        @include flex-center;
+    }
+
+    &__nav-icon {
+        fill: $color-primary;
+    }
+
+    &__preview {
+        position: relative;
+        width: 100%;
+        height: 70dvh;
+        min-height: 170px;
+        object-fit: cover;
+        transform-origin: bottom;
+        animation: zoomOut 1s ease forwards;
+        transform: scale(1.1);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+        padding: $spacing-xl;
+        border-radius: $spacing-l;
+        background-color: $color-background;
+        transform: translateY(-$spacing-l);
+        position: relative;
+    }
+
+}
+
+
+.events-slider {
+    display: flex;
+
+    &__heading {
+        margin-bottom: $spacing-s;
+    }
+
+    &__container {
+        display: flex;
+        gap: $spacing-m;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-snap-align: start;
+
+        margin-left: -$spacing-l;
+        padding-left: $spacing-l;
+        width: calc(100% + $spacing-l * 2);
+        padding-right: $spacing-l;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        max-width: 70dvw;
+        padding: $spacing-xs;
+        border-radius: $spacing-l;
+        gap: $spacing-xs;
+        background-color: $color-white;
+    }
+
+    &__image-container {
+        background-color: $color-primary;
+        height: 150px;
+        width: 100%;
+        border-radius: $spacing-m;
+        overflow: hidden;
+        object-fit: cover;
+    }
+
+    &__image {
+        height: inherit;
+        width: inherit;
+        object-fit: cover;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xxxs;
+    }
+
+    &__title {}
+
+    &__location {
+        color: $color-text-80;
+        font-size: .8rem;
+    }
+
+    &__date {
+        color: $color-text-50;
+        font-size: .8rem;
+    }
+
+    &__arrow-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $spacing-xxl;
+        height: $spacing-xxl;
+        border-radius: $spacing-xxl;
+        background-color: #282828;
+    }
+
+    &__arrow {
+        scale: .8;
+    }
+}
+
+
+@keyframes zoomOut {
+    0% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
