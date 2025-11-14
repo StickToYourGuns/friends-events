@@ -13,20 +13,44 @@
                     <!-- <span class="comment__time">{{ useDateParser(comment.date) }}</span> -->
                 </div>
             </div>
-            <img class="comments__plus" :src="plus" alt="Добавить комментарий">
+            <Transition name="fade" mode="out-in">
+                <div v-if="!inputVisible" class="comments__input-container" key="plus">
+                    <img class="comments__plus" :src="plus" @click="openInput" alt="Добавить комментарий">
+                </div>
+                <div v-else class="comments__input-container" key="comment">
+                    <img class="comment__image" :src="user?.photo_url" @click="openInput" :alt="user?.username">
+                    <InputComment v-model="commentText" />
+                </div>
+            </Transition>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from "vue";
 import type { Comment } from '@/types'
+import { useUserStore } from '@/stores/userStore'
+import InputComment from "@/components/UI/InputComment.vue";
 // import { useDateParser } from '@/services/useDate'
 import plus from "@/assets/images/icons/plus.svg?url"
+import type { FullUser } from '@/types'
+
+const userStore = useUserStore()
 
 const props = defineProps<{
     comments: Comment[],
     label: string
 }>()
+
+const inputVisible = ref(false)
+
+const commentText = ref('')
+
+const openInput = () => {
+    inputVisible.value = !inputVisible.value
+}
+
+const user = computed<FullUser | null>(() => userStore.fullUser);
 </script>
 
 <style scoped lang="scss"></style>

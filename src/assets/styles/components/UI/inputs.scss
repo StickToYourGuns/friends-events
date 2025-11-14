@@ -1,0 +1,94 @@
+@use "@/assets/styles/variables.scss" as *;
+
+.input {
+    display: flex;
+    align-items: center;
+    height: $main-input-height;
+    background-color: $color-white;
+    border-radius: calc($main-input-height/2);
+    gap: 10px;
+    position: relative;
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    &--comment {
+        min-height: $avatars-size-m;
+        height: auto;
+    }
+
+    &__field {
+        background: transparent;
+        border: none;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        padding: 0 $spacing-s;
+        font-size: 1.25rem;
+        color: $color-text-50;
+        transition: all .3s ease;
+
+        &--search {
+            padding: 0 calc($main-input-height + $spacing-xxs) 0 $main-input-height;
+        }
+
+        &:focus {
+            outline: none;
+            border: none;
+            color: $color-text-80;
+        }
+    }
+
+    &__textarea {
+        background: transparent;
+        border: none;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        padding: $spacing-s $spacing-s;
+        padding-right: $spacing-xxl;
+        font-size: 1rem;
+        line-height: 1;
+        color: $color-text-50;
+        transition: all .3s ease;
+        field-sizing: content;
+        min-height: 40px;
+        max-height: 100px;
+        overflow-y: auto;
+        resize: none;
+        transition: height 0.3s ease-out, min-height 0.3s ease-out;
+
+        &:focus {
+            outline: none;
+            border: none;
+            color: $color-text-80;
+        }
+    }
+
+    &__icon-container {
+        @include flex-center;
+        position: absolute;
+        height: $avatars-size-l;
+        width: $avatars-size-l;
+        border-radius: 100%;
+
+        &:last-child {
+            right: 0;
+            background-color: $color-primary;
+        }
+    }
+
+    &__icon {
+        scale: 1.2;
+        fill: #282828;
+
+        &--white {
+            fill: $color-white;
+        }
+
+        &--single {
+            position: absolute;
+            right: $spacing-s;
+            height: $spacing-m;
+        }
+    }
+}

@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 export default defineConfig({
-  base: './',
+  base: '/friends-events/',
   server: {
     allowedHosts: [
       'eugene-coralliferous-uninstructively.ngrok-free.dev',

@@ -24,7 +24,6 @@ export function usePreviewSwipe() {
             if (target.classList.contains('content__hr-container')) {
                 valid = true;
                 isScrolling.value = true;
-                console.log(valid);
                 break;
             }
             target = target.parentElement;
@@ -44,13 +43,11 @@ export function usePreviewSwipe() {
         if (!touch) return;
         const currentY = touch.clientY;
         scroll.value = startY.value - currentY;
-        console.log('scroll: ', scroll.value);
     };
 
     const handleTouchEnd = () => {
         isScrolling.value = false;
         valid = false;
-        console.log('touch end');
         if (
             (!previewMinimized.value && scroll.value > 0 && scroll.value < valueToMinimize / 2) ||
             (previewMinimized.value && scroll.value <= -(valueToMinimize / 2)) ||
@@ -74,7 +71,6 @@ export function usePreviewSwipe() {
     watch(scroll, (newScroll) => {
         if (!previewMinimized.value && newScroll > -50 * (window.innerHeight / 100)) {
             previewHeight.value = `calc(50dvh - ${newScroll}px)`;
-            console.log('here', -30 * (window.innerHeight / 100));
             
         } else if (previewMinimized.value && newScroll < 0) {
             previewHeight.value = `calc(20dvh - ${newScroll}px)`;

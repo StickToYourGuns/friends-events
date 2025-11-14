@@ -5,7 +5,6 @@
         position: absolute;
         top: 0;
         width: 100%;
-        margin-left: -$spacing-xl;
         padding: $spacing-xs;
         padding-bottom: $spacing-xxxxl;
         @include flex-center
@@ -25,6 +24,7 @@
     &__section {
         display: flex;
         flex-direction: column;
+        padding: 0 $spacing-xl;
     }
 
     &__title {
@@ -83,10 +83,18 @@
     }
 
     &__accept-scroll {
-    overflow-x: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-xl;
-    padding-bottom: $spacing-xxxxl;
-}
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+        padding-bottom: $spacing-xxxxl;
+        overflow-x: scroll;
+
+        &--events {
+        }
+
+        &--user {
+            // overflow-x: visible;
+
+        }
+    }
 }

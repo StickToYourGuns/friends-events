@@ -9,12 +9,18 @@
         margin-bottom: $spacing-s;
     }
 
+    &__input-container {
+        display: flex;
+        align-items: flex-start;
+        gap: $spacing-xs;
+        padding-bottom: $spacing-m;
+    }
+
     &__plus {
-        width: $spacing-xxl;
-        height: $spacing-xxl;
+        width: $avatars-size-m;
+        height: $avatars-size-m;
         border-radius: $avatars-size-m;
         background-color: $color-primary;
-        margin: $spacing-xxs;
     }
 }
 
@@ -22,6 +28,12 @@
     display: flex;
     justify-content: space-between;
     gap: $spacing-xs;
+
+    &__image {
+        width: $avatars-size-m;
+        height: $avatars-size-m ;
+        border-radius: $avatars-size-m;
+    }
 
     &__content {
         display: flex;
@@ -53,11 +65,5 @@
     &__time {
         font-size: .7rem;
         color: $color-text-30;
-    }
-
-    &__image {
-        width: $avatars-size-m;
-        height: $avatars-size-m ;
-        border-radius: $avatars-size-m;
     }
 }

@@ -1,13 +1,13 @@
-.routing-enter-active {
-    transition: all .3s ease-in-out;
+.fade-enter-active {
+    transition: all .15s ease-in-out;
 }
 
-.routing-leave-active {
-    transition: all .3s ease-in-out;
+.fade-leave-active {
+    transition: all .15s ease-in-out;
 }
 
-.routing-enter-from,
-.routing-leave-to {
+.fade-enter-from,
+.fade-leave-to {
     opacity: 0;
 }
 

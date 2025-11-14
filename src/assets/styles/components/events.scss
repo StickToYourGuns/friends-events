@@ -40,7 +40,7 @@
         display: flex;
         flex-direction: column;
         gap: $spacing-xl;
-        padding: $spacing-xl;
+        padding: $spacing-xl 0;
         border-radius: $spacing-l;
         background-color: $color-background;
         transform: translateY(-$spacing-l);
@@ -70,17 +70,17 @@
         -ms-overflow-style: none;
         scroll-snap-align: start;
 
-        margin-left: -$spacing-l;
-        padding-left: $spacing-l;
-        width: calc(100% + $spacing-l * 2);
-        padding-right: $spacing-l;
+        margin-left: -$spacing-xl;
+        padding-left: $spacing-xl;
+        width: calc(100% + $spacing-xl * 2);
+        padding-right: $spacing-xl;
     }
 
     &__card {
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
-        max-width: 70dvw;
+        width: 80dvw;
         padding: $spacing-xs;
         border-radius: $spacing-l;
         gap: $spacing-xs;

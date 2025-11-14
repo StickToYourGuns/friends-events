@@ -20,7 +20,7 @@ import type { FullUser } from '@/types'
 const userStore = useUserStore()
 const router = useRouter()
 
-const user = computed<FullUser>(() => userStore.fullUser);
+const user = computed<FullUser | null>(() => userStore.fullUser);
 
 const openProfile = () => {
     router.push(`/user/${user.value?.id}`)

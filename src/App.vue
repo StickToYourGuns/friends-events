@@ -1,7 +1,7 @@
 <template>
   <Transition name="layouting" mode="out-in">
     <component :is="layout" :key="layoutKey">
-      <Transition name="routing">
+      <Transition name="fade">
         <router-view />
       </Transition>
     </component>

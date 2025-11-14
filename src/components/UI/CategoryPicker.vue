@@ -32,19 +32,17 @@ const pickCategory = (category: string) => {
     gap: $spacing-xs;
     height: $categories-height;
     overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-align: start;
+    margin-left: -$spacing-xl;
+    padding-left: $spacing-xl;
+    width: calc(100% + $spacing-xl * 2);
+    padding-right: $spacing-xl;
 
     &::-webkit-scrollbar {
         display: none;
     }
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-snap-align: start;
-
-    margin-left: -$spacing-l;
-    padding-left: $spacing-l;
-    width: calc(100% + $spacing-l * 2);
-    padding-right: $spacing-l;
 }
 
 .category-button {
