@@ -1,6 +1,10 @@
 @use "@/assets/styles/variables.scss" as *;
 
 .events {
+    &__heading {
+        @include flex-between;
+    }
+
     &__nav-buttons {
         width: 100%;
         padding: 0 $spacing-xl;
@@ -47,6 +51,33 @@
         position: relative;
     }
 
+    &__icon-container {
+        @include flex-center;
+        // position: absolute;
+        height: $avatars-size-l;
+        width: $avatars-size-l;
+        border-radius: 100%;
+
+        &:last-child {
+            right: 0;
+            background-color: $color-primary;
+        }
+    }
+
+    &__icon {
+        scale: 1.2;
+        fill: #282828;
+
+        &--white {
+            fill: $color-white;
+        }
+
+        &--single {
+            position: absolute;
+            right: $spacing-s;
+            height: $spacing-m;
+        }
+    }
 }
 
 

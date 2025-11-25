@@ -13,8 +13,8 @@
 import { computed, onMounted } from "vue";
 
 // import Notifications from "@/components/UI/Notifications.vue";
-import { useKeyboardWatcher } from '@/services/useKeyboardBlur'
-import { initTelegramApp } from '@/services/initTelegramApp'
+import { useKeyboardWatcher } from '@/composables/useKeyboardBlur'
+import { initTelegramApp } from '@/composables/initTelegramApp'
 
 import { useRoute } from 'vue-router'
 import DefaultLayout from "@/layouts/DefaultLayout.vue";

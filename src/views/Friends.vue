@@ -37,7 +37,6 @@ const filteredFriends = computed<Friend[]>(() => {
     display: flex;
     flex-direction: column;
     gap: $spacing-xl;
-    // padding-bottom: calc(var(--tg-safe-area-inset-bottom) + $menu-height + $spacing-xl);
     overflow: hidden;
     flex-shrink: 1;
 }

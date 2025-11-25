@@ -1,4 +1,3 @@
-// src/mocks/friends.ts
 import type { FullEvent } from '@/types'
 
 export const mockEvents: FullEvent[] = [

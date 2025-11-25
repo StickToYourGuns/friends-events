@@ -31,7 +31,7 @@ import { ref, computed } from "vue";
 import type { Comment } from '@/types'
 import { useUserStore } from '@/stores/userStore'
 import InputComment from "@/components/UI/InputComment.vue";
-// import { useDateParser } from '@/services/useDate'
+// import { useDateParser } from '@/composables/useDate'
 import plus from "@/assets/images/icons/plus.svg?url"
 import type { FullUser } from '@/types'
 

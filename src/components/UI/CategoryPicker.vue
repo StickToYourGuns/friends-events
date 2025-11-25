@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { Haptics } from '@/services/haptics'
+import { Haptics } from '@/composables/useHaptics'
 import { ref } from "vue";
 
 const props = defineProps<{

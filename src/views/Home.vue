@@ -41,7 +41,6 @@ const openEvent = (id: number) => {
     display: flex;
     flex-direction: column;
     gap: $spacing-xl;
-    // height: 100%;
-    padding-bottom: calc(var(--tg-safe-area-inset-bottom) + $menu-height + $spacing-xl);
+    // padding-bottom: calc(var(--tg-safe-area-inset-bottom) + $menu-height + $spacing-xl);
 }
 </style>

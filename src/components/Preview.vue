@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { usePreviewSwipe } from '@/services/usePreviewSwipe';
+import { usePreviewSwipe } from '@/composables/usePreviewSwipe';
 
 const props = defineProps<{ image: string }>();
 const { previewHeight, transitionSpeed } = usePreviewSwipe();

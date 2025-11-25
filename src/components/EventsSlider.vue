@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { ref, defineProps } from "vue";
-import { useDateParser } from '@/services/useDate'
+import { useDateParser } from '@/composables/useDate'
 import type { FullEvent } from '@/types'
 import arrow from "@/assets/images/icons/arrow-right.svg?url"
 

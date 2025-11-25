@@ -10,7 +10,7 @@ export async function initTelegramUser() {
     const user = initDataUnsafe.user
     const friends = await mockApi.getFriends()
     const events = await mockApi.getMyEvents()
-    console.log('Вот такая хуйня', user, friends, events);
+    console.log('initTelegramUser:', user, friends, events);
     
     const fullUser: FullUser = {
         ...user,

@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import { useDateParser } from '@/services/useDate'
-import { usePreviewSwipe } from '@/services/usePreviewSwipe'
+import { useDateParser } from '@/composables/useDate'
+import { usePreviewSwipe } from '@/composables/usePreviewSwipe'
 import type { FullEvent, FullUser } from '@/types'
 import { isEvent } from '@/helpers/typeGuards'
 import ExpandableText from "@/components/ExpandableText.vue";

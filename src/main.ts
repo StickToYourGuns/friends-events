@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-// import { initTelegramUser } from '@/services/useUser'
+// import { initTelegramUser } from '@/composables/useUser'
 import App from './App.vue'
 import router from './router/router.ts'
 import '@/assets/styles/main.scss'

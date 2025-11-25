@@ -1,0 +1,7 @@
+@use "@/assets/styles/variables.scss" as *;
+
+.swiper {
+    &__heading {
+        @include flex-between;
+    }
+}

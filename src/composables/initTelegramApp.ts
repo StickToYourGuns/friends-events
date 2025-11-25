@@ -1,4 +1,4 @@
-import { initTelegramUser } from '@/services/useUser'
+import { initTelegramUser } from '@/composables/useUser'
 
 export async function initTelegramApp() {
     const tg = window.Telegram?.WebApp;

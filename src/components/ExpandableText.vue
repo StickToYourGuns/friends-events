@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { ref, defineProps } from "vue";
-import { useTextExpand } from '@/services/useTextExpand'
+import { useTextExpand } from '@/composables/useTextExpand'
 
 const props = defineProps<{
     text: string,

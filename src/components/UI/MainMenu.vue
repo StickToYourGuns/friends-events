@@ -12,7 +12,7 @@
 import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
-import { Haptics } from '@/services/haptics'
+import { Haptics } from '@/composables/useHaptics'
 
 import Home from '@/assets/images/icons/home.svg'
 import GroupPerson from '@/assets/images/icons/group-person.svg'

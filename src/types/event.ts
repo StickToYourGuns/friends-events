@@ -13,6 +13,15 @@ export interface FullEvent {
     tags: string[] | null
     comments: Comment[] | null
 }
+export interface SwipeEvent {
+    id: number
+    title: string
+    date: Date | string
+    location_name: string | null
+    location_coords: string | null
+    image: string
+    description: string | null
+}
 
 export interface Participant {
     id: number

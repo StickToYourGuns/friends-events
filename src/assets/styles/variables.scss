@@ -2,6 +2,7 @@ $color-primary: #282828;
 $color-primary-10: #28282810;
 $color-background: #F4F6F8;
 $color-white: #FFFFFF;
+$color-white-80: rgba(255, 255, 255, 0.8);
 $color-text-100: #282828;
 $color-text-80: #282828b0;
 $color-text-50: #28282880;
@@ -37,5 +38,10 @@ $z-index-bio: 20;
 @mixin flex-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
