@@ -42,7 +42,7 @@ export const mockApi = {
     // },
     async nextSwipeEvent() {
         try {
-            await delay(500)
+            // await delay(500)
             const event = mockSwipeEvents[Math.floor(Math.random() * mockSwipeEvents.length)]
             console.log('Mock API: следующий ивент для свайпа', event)
             return event

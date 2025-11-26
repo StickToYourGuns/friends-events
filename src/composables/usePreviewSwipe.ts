@@ -11,7 +11,6 @@ export function usePreviewSwipe() {
     let valid = false;
     const contentHeight = computed(() => `calc(100dvh - ${previewHeight.value} + 40px)`);
 
-
     let isScrolling = ref(false);
 
     const handleTouchStart = (event: TouchEvent) => {
@@ -32,7 +31,6 @@ export function usePreviewSwipe() {
         if (!valid) return;
 
         startY.value = touch.clientY;
-        // transition.value = false;
         transitionSpeed.value = 'none'
         scroll.value = 0;
     };
@@ -71,7 +69,7 @@ export function usePreviewSwipe() {
     watch(scroll, (newScroll) => {
         if (!previewMinimized.value && newScroll > -50 * (window.innerHeight / 100)) {
             previewHeight.value = `calc(50dvh - ${newScroll}px)`;
-            
+
         } else if (previewMinimized.value && newScroll < 0) {
             previewHeight.value = `calc(20dvh - ${newScroll}px)`;
         }

@@ -25,7 +25,7 @@ import UIIconButton from '@/components/UI/UIIconButton.vue';
     padding-bottom: calc(var(--tg-safe-area-inset-bottom) + $menu-height + $spacing-xl);
 
     &>* {
-        flex-shrink: 0;
+        // flex-shrink: 0;
     }
 }
 </style>

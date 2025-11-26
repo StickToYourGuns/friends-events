@@ -9,6 +9,8 @@ $color-text-50: #28282880;
 $color-text-30: #28282846;
 
 $color-red: #b1002f;
+$color-blue: #5780D2;
+$color-green: #3B9C3E;
 
 $spacing-xxxs: 2px;
 $spacing-xxs: 4px;
@@ -40,6 +42,7 @@ $z-index-bio: 20;
   justify-content: center;
   align-items: center;
 }
+
 @mixin flex-between {
   display: flex;
   justify-content: space-between;
